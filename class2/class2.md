@@ -7,3 +7,24 @@
 - Parcel => Easy Config (0 Config)
 - ^(carrot) => Minor, Patch Updates (new functionality and backward compatible, default); ~(tilde) => Patch updates (bug fix)
 - npx - executing package
+- Avoid CDN => Network call, Versioning
+- Vite, Webpack, Parcel are bundlers
+
+## Parcel Features
+
+- Dev build
+- Local server
+- Hot module replacement (HMR) (Refersh) => File watching Algo => C++
+- Tree shaking => Remove unused code
+- Caching the build - Faster build
+- Image optimization
+- Bundling
+- Minification
+- Compress
+- Optimise
+- Consistent hashing
+- Differential bundling => Bundle based on browsers supported (palyfills)
+- Code spliting
+- Diagonistics
+- Can host on https
+
