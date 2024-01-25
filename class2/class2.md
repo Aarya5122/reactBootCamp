@@ -28,3 +28,5 @@
 - Diagonistics
 - Can host on https
 
+
+- browserslist => will surely work i.e has fallbacks 
