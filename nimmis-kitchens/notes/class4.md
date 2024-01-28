@@ -1,0 +1,1 @@
+Inline CSS is passed as object to style attribute.

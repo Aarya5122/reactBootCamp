@@ -1,8 +1,12 @@
+import Header from "./components/Header";
+import Home from "./pages/Home";
+
 const App = () => {
 	return (
 		<>
-			<h1>Om Namo Venkateshaya!!</h1>
-			<p>Hello world</p>
+			<Header/>
+            <Home/>
+            
 		</>
 	);
 };

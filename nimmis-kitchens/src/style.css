@@ -1,0 +1,58 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+.flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.flex::after {
+	content: "";
+	flex: auto;
+}
+
+.spaceAround {
+	justify-content: space-around;
+}
+
+.spaceBetween {
+	justify-content: space-between;
+}
+
+.alignItemsCenter {
+	align-items: center;
+}
+
+.gap-15 {
+	gap: 15;
+}
+
+header {
+	border-bottom: 1px solid black;
+	padding: 4px 35px 0px 0px;
+}
+
+.logo {
+	height: 5em;
+}
+
+.navItems {
+	list-style-type: none;
+}
+
+.restroCard {
+	width: 12em;
+	height: 20em;
+	background-color: #999;
+	border: 1px solid #fff;
+}
+
+.restroCard:hover {
+	border: 1px solid grey;
+}
+
+.restroCardImg {
+	width: 100%;
+}
