@@ -1,0 +1,41 @@
+{
+	"name": "nimiskitchens",
+	"version": "1.0.0",
+	"description": "Food ordering app",
+	"main": "src/index.js",
+	"scripts": {
+		"start": "npx parcel public/index.html",
+		"build": "npx parcel build public/index.html",
+		"test": "jest"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Aarya5122/reactBootcamp.git"
+	},
+	"keywords": [
+		"Akshay",
+		"Saini",
+		"Aarya",
+		"Food",
+		"Ordering",
+		"App",
+		"Nimmis",
+		"Kitchen",
+		"Fullstack",
+		"UI"
+	],
+	"author": "Aarya",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Aarya5122/reactBootcamp/issues"
+	},
+	"homepage": "https://github.com/Aarya5122/reactBootcamp#readme",
+	"dependencies": {
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"parcel": "^2.11.0",
+		"process": "^0.11.10"
+	}
+}
