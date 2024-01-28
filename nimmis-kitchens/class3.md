@@ -9,7 +9,9 @@
 - JSX is not a valid JS / Pure JS (Ecma Script 6). JS engine cannot execte it. It will throw syntax error.
 - JSX is a compiled or transpiled by babel (JS compiler => It also polyfills the features, Maintained by Github, Node library)
 - JSX attributes are in camcel casing
+- We can write any JS expression with in curly braces.
 - Multiple line JSX is enclosed in paranthesis.
+- JSX makes react readable.
 
 
 # React validation of tags
@@ -28,3 +30,7 @@ The above case is seen when tagname is in lowercase.
 ## Component composition
 
 - Composing two components into one another. i.e using a react component in react component.
+
+# React Keynotes
+
+- When we are using a JS expression in JSX, Cross site scripting (Injection attacks) are sanitized by JSX. //TODO: Read more.
