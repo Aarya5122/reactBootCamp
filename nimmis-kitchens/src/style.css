@@ -6,11 +6,7 @@
 .flex {
 	display: flex;
 	flex-wrap: wrap;
-}
-
-.flex::after {
-	content: "";
-	flex: auto;
+    justify-content: flex-start;
 }
 
 .spaceAround {

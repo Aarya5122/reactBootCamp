@@ -1,4 +1,10 @@
-const RestroCard = () => {
+const RestroCard = ({
+	resName = "Nirmala Kitchen",
+	cuisine = "South Indian, Andhra Special",
+	rating = 5,
+	price = "₹200/- per person",
+	deliveryTime = "40 mins",
+}) => {
 	return (
 		<div className="restroCard">
 			<div>
@@ -9,11 +15,11 @@ const RestroCard = () => {
 				/>
 			</div>
 			<div>
-				<h2>Nirmala Kitchen</h2>
-				<p>South Indian, Andhra Special</p>
-				<p>5 star</p>
-				<p>₹200/- per person</p>
-				<p>🚚 40 mins</p>
+				<h2>{resName}</h2>
+				<p>{cuisine}</p>
+				<p>{rating}⭐ </p>
+				<p>{price}</p>
+				<p>🚚 {deliveryTime}</p>
 			</div>
 		</div>
 	);
