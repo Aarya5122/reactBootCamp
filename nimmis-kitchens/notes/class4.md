@@ -7,5 +7,5 @@ Mainly used when passing dynamic data to component.
 Arguments to a functional component
 
 # Config Driven UI
-UI rendered depends on data and configuration set in backend.
+UI rendered depends on data which is configured using real time info which is handled in backend.
 Here it is location

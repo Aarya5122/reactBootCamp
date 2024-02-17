@@ -1,17 +1,24 @@
+import constants from "../constants";
+
 const RestroCard = ({
 	resName = "Nirmala Kitchen",
 	cuisine = "South Indian, Andhra Special",
 	rating = 5,
 	price = "₹200/- per person",
 	deliveryTime = "40 mins",
+	resImgID = "",
 }) => {
 	return (
 		<div className="restroCard">
 			<div>
 				<img
 					className="restroCardImg"
-					src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKcJzVTWJNvW4cDhETXlNhs6r0iNPRNIrpLg&usqp=CAU"
-					alt="Restuarants"
+					src={
+						resImgID
+							? `${constants.SWIGGYIMGURL}${resImgID}`
+							: constants.DEFAULTRESTUARANTURL
+					}
+					alt={`${resName} Restuarant`}
 				/>
 			</div>
 			<div>
