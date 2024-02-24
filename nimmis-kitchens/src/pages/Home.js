@@ -4,6 +4,7 @@ import { SWIGGYURL } from "../constants";
 
 import RestroCard from "../components/RestroCard";
 import Search from "../components/Search";
+import RestroCardShimmer from "../components/RestroCardShimmer";
 
 const Home = () => {
 	const [restaurants, setRestaurants] = useState([]);
@@ -40,44 +41,28 @@ const Home = () => {
 	useEffect(() => {
 		fetchSwiggyData();
 	}, []);
+
 	return (
 		<div>
-			<Search />
+			<Search setFilteredRestaurants={setFilteredRestaurants} restaurants={restaurants} />
 			<button onClick={filterTopRatedRestaurants}>
 				{isFiltered ? "Cancel" : "Top Rated Restuarant"}
 			</button>
 			<div className="restroContainer flex spaceAround gap-15">
-				{console.log(filteredRestaurants)}
-				{filteredRestaurants.map((res) => (
-					<RestroCard
-						resName={res.info.name}
-						cuisine={res.info.cuisines.join(", ")}
-						rating={res.info.avgRating}
-						price={res.info.costForTwo}
-						resImgID={res.info.cloudinaryImageId}
-						deliveryTime={`${res.info.sla.deliveryTime} mins`}
-					/>
-				))}
-				<RestroCard />
-				<RestroCard />
-				<RestroCard />
-				<RestroCard />
-				<RestroCard />
-				<RestroCard />
-				<RestroCard />
-				<RestroCard />
-				<RestroCard />
-				<RestroCard />
-				<RestroCard />
-				<RestroCard />
-				<RestroCard />
-				<RestroCard />
-				<RestroCard />
-				<RestroCard />
-				<RestroCard />
-				<RestroCard />
-				<RestroCard />
-				<RestroCard />
+				{filteredRestaurants?.length ? (
+					filteredRestaurants.map((res) => (
+						<RestroCard
+							resName={res.info.name}
+							cuisine={res.info.cuisines.join(", ")}
+							rating={res.info.avgRating}
+							price={res.info.costForTwo}
+							resImgID={res.info.cloudinaryImageId}
+							deliveryTime={`${res.info.sla.deliveryTime} mins`}
+						/>
+					))
+				) : (
+					<RestroCardShimmer />
+				)}
 				<div className="empty-item"></div>
 			</div>
 		</div>
