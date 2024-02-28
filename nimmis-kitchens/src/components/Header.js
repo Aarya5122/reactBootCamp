@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
 	const [btnName, setBtnName] = useState("login");
@@ -15,7 +16,9 @@ const Header = () => {
 			<div className="navItemsContainer flex gap-15">
 				<ul className="flex gap-15 navItems">
 					{user?.name ? <li>{user.name}</li> : ""}
-					<li>About us</li>
+					<li>
+						<Link to={"/about"}> About us </Link>
+					</li>
 					<li>Contact</li>
 					<li>Cart</li>
 				</ul>

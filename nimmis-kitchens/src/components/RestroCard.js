@@ -1,4 +1,5 @@
 import constants from "../constants";
+import { useNavigate } from "react-router-dom";
 
 const RestroCard = ({
 	resName = "Nirmala Kitchen",
@@ -7,9 +8,15 @@ const RestroCard = ({
 	price = "₹200/- per person",
 	deliveryTime = "40 mins",
 	resImgID = "",
+	resId,
 }) => {
+	const navigate = useNavigate();
+
+	function openRestro() {
+		navigate(`/restaurants/${resId}`);
+	}
 	return (
-		<div className="restroCard">
+		<div className="restroCard" onClick={openRestro}>
 			<div>
 				<img
 					className="restroCardImg"

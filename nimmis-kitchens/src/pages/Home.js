@@ -44,14 +44,21 @@ const Home = () => {
 
 	return (
 		<div>
-			<Search setFilteredRestaurants={setFilteredRestaurants} restaurants={restaurants} />
+			<Search
+				setFilteredRestaurants={setFilteredRestaurants}
+				restaurants={restaurants}
+			/>
 			<button onClick={filterTopRatedRestaurants}>
 				{isFiltered ? "Cancel" : "Top Rated Restuarant"}
 			</button>
 			<div className="restroContainer flex spaceAround gap-15">
+				{console.log(filteredRestaurants)}
+
 				{filteredRestaurants?.length ? (
 					filteredRestaurants.map((res) => (
 						<RestroCard
+							resId={res.info.id}
+							key={res.info.id}
 							resName={res.info.name}
 							cuisine={res.info.cuisines.join(", ")}
 							rating={res.info.avgRating}
