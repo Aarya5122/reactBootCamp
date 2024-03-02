@@ -5,11 +5,14 @@ import { SWIGGYURL } from "../constants";
 import RestroCard from "../components/RestroCard";
 import Search from "../components/Search";
 import RestroCardShimmer from "../components/RestroCardShimmer";
+import PromotedRestroCard from "../components/PromotedRestroCard";
 
 const Home = () => {
 	const [restaurants, setRestaurants] = useState([]);
 	const [filteredRestaurants, setFilteredRestaurants] = useState(restaurants);
 	let [isFiltered, setIsFiltered] = useState(false);
+
+	const PromotedRestraurantCard = PromotedRestroCard(RestroCard);
 
 	async function fetchSwiggyData() {
 		const { data } = await axios.get(SWIGGYURL);
@@ -51,22 +54,35 @@ const Home = () => {
 			<button onClick={filterTopRatedRestaurants}>
 				{isFiltered ? "Cancel" : "Top Rated Restuarant"}
 			</button>
-			<div className="restroContainer flex spaceAround gap-15">
-				{console.log(filteredRestaurants)}
-
+			<div className="restroContainer flex mx-auto">
 				{filteredRestaurants?.length ? (
-					filteredRestaurants.map((res) => (
-						<RestroCard
-							resId={res.info.id}
-							key={res.info.id}
-							resName={res.info.name}
-							cuisine={res.info.cuisines.join(", ")}
-							rating={res.info.avgRating}
-							price={res.info.costForTwo}
-							resImgID={res.info.cloudinaryImageId}
-							deliveryTime={`${res.info.sla.deliveryTime} mins`}
-						/>
-					))
+					filteredRestaurants.map((res) =>
+						res.info.avgRating > 4 ? (
+							<div key={res.info.id}>
+								<PromotedRestraurantCard
+									resId={res.info.id}
+									resName={res.info.name}
+									cuisine={res.info.cuisines.join(", ")}
+									rating={res.info.avgRating}
+									price={res.info.costForTwo}
+									resImgID={res.info.cloudinaryImageId}
+									deliveryTime={`${res.info.sla.deliveryTime} mins`}
+								/>
+							</div>
+						) : (
+							<div key={res.info.id}>
+								<RestroCard
+									resId={res.info.id}
+									resName={res.info.name}
+									cuisine={res.info.cuisines.join(", ")}
+									rating={res.info.avgRating}
+									price={res.info.costForTwo}
+									resImgID={res.info.cloudinaryImageId}
+									deliveryTime={`${res.info.sla.deliveryTime} mins`}
+								/>
+							</div>
+						)
+					)
 				) : (
 					<RestroCardShimmer />
 				)}

@@ -32,6 +32,7 @@
 	"homepage": "https://github.com/Aarya5122/reactBootcamp#readme",
 	"dependencies": {
 		"axios": "^1.6.7",
+		"postcss": "^8.4.35",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-router-dom": "^6.22.1"
@@ -39,6 +40,7 @@
 	"devDependencies": {
 		"buffer": "^6.0.3",
 		"parcel": "^2.11.0",
-		"process": "^0.11.10"
+		"process": "^0.11.10",
+		"tailwindcss": "^3.4.1"
 	}
 }

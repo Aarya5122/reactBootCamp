@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
 	padding: 0px;
 	margin: 0px;
@@ -8,7 +12,20 @@
 .flex {
 	display: flex;
 	flex-wrap: wrap;
-    justify-content: flex-start;
+}
+
+.mx-auto {
+	margin: 0px auto;
+}
+
+.promoted {
+	position: absolute;
+	background: #51e582;
+	color: #000;
+	padding: 3px;
+	font-weight: 900;
+
+	border-radius: 6px;
 }
 
 .spaceAround {
@@ -45,6 +62,7 @@ header {
 	height: 20em;
 	background-color: #999;
 	border: 1px solid #fff;
+	margin: 17px;
 }
 
 .restroCard:hover {

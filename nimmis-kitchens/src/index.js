@@ -1,15 +1,15 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 
 import "./style.css";
 
 import App from "./App";
 import Home from "./pages/Home";
-import About from "./pages/About";
 import Error404 from "./pages/Error404";
 import Menu from "./pages/Menu";
+
+const LazyAbout = lazy(() => import("./pages/About"));
 
 const appRouter = createBrowserRouter([
 	{
@@ -30,7 +30,11 @@ const appRouter = createBrowserRouter([
 			},
 			{
 				path: "/about",
-				element: <About />,
+				element: (
+					<Suspense fallback={<h1>Loading About....</h1>}>
+						<LazyAbout />
+					</Suspense>
+				),
 			},
 		],
 		errorElement: <Error404 />,

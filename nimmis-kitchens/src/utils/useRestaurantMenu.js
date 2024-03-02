@@ -10,8 +10,6 @@ function useRestaurantMenu(restaurantId) {
 			constants.RESTAURATMENU?.replace("{RES_ID}", restaurantId)
 		);
 
-		console.log(data);
-
 		setRestaurantInfo(
 			data?.data?.cards
 				?.find(
@@ -19,9 +17,11 @@ function useRestaurantMenu(restaurantId) {
 						card?.groupedCard &&
 						Object.keys(card?.groupedCard)?.length > 0
 				)
-				?.groupedCard?.cardGroupMap?.REGULAR?.cards?.find(
-					(card) => card?.card?.card?.title === "Recommended"
-				)?.card?.card
+				?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
+					(card) =>
+						card?.card?.card?.["@type"] ===
+						"type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+				)
 		);
 	}
 
