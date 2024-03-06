@@ -14,10 +14,6 @@
 	flex-wrap: wrap;
 }
 
-.mx-auto {
-	margin: 0px auto;
-}
-
 .promoted {
 	position: absolute;
 	background: #51e582;

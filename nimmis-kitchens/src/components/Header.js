@@ -1,9 +1,20 @@
-import { useState } from "react";
+import { useContext, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../context/userContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
 	const [btnName, setBtnName] = useState("login");
 	const [user, setUser] = useState({});
+
+	const userData = useContext(UserContext);
+	console.log(userData);
+
+	// Subscribed to store.cart.items
+	const cartItems = useSelector((store) => store.cart.items);
+
+	console.log("Rerendered header");
+
 	return (
 		<header className="flex alignItemsCenter spaceBetween">
 			<div className="logoContainer">
@@ -20,13 +31,13 @@ const Header = () => {
 						<Link to={"/about"}> About us </Link>
 					</li>
 					<li>Contact</li>
-					<li>Cart</li>
+					<li>Cart ({cartItems.length})</li>
 				</ul>
 				<button
 					onClick={(e) => {
 						e.preventDefault();
 						if (btnName === "login") {
-							setUser({ name: "Aarya" });
+							setUser({ name: userData.name ?? "Nirmala" });
 							setBtnName("logout");
 						} else {
 							setBtnName("login");

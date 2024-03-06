@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { SWIGGYURL } from "../constants";
 
@@ -6,8 +6,10 @@ import RestroCard from "../components/RestroCard";
 import Search from "../components/Search";
 import RestroCardShimmer from "../components/RestroCardShimmer";
 import PromotedRestroCard from "../components/PromotedRestroCard";
+import UserContext from "../context/userContext";
 
 const Home = () => {
+	const { setUser, user } = useContext(UserContext);
 	const [restaurants, setRestaurants] = useState([]);
 	const [filteredRestaurants, setFilteredRestaurants] = useState(restaurants);
 	let [isFiltered, setIsFiltered] = useState(false);
@@ -51,13 +53,26 @@ const Home = () => {
 				setFilteredRestaurants={setFilteredRestaurants}
 				restaurants={restaurants}
 			/>
+			{console.log("TESTING: ", user)}
+			<p>{user.name}</p>
+			<input
+				type="text"
+				className="bg-white px-1 text-black"
+				placeholder="Username context"
+				value={user.name}
+				onChange={(e) => {
+					e.preventDefault(); 
+					setUser({name: e.target.value});
+				}}
+			/>
+			<br />
 			<button onClick={filterTopRatedRestaurants}>
 				{isFiltered ? "Cancel" : "Top Rated Restuarant"}
 			</button>
 			<div className="restroContainer flex mx-auto">
 				{filteredRestaurants?.length ? (
 					filteredRestaurants.map((res) =>
-						res.info.avgRating > 4 ? (
+						res.info.avgRating >= 4.5 ? (
 							<div key={res.info.id}>
 								<PromotedRestraurantCard
 									resId={res.info.id}
