@@ -10,6 +10,8 @@ import Error404 from "./pages/Error404";
 import Menu from "./pages/Menu";
 
 const LazyAbout = lazy(() => import("./pages/About"));
+const LazyCart = lazy(() => import("./pages/Cart"));
+const LazyContact = lazy(() => import("./pages/Contact"));
 
 const appRouter = createBrowserRouter([
 	{
@@ -33,6 +35,22 @@ const appRouter = createBrowserRouter([
 				element: (
 					<Suspense fallback={<h1>Loading About....</h1>}>
 						<LazyAbout />
+					</Suspense>
+				),
+			},
+			{
+				path: "/cart",
+				element: (
+					<Suspense fallback={<h1>Loading Cart....</h1>}>
+						<LazyCart />
+					</Suspense>
+				),
+			},
+			{
+				path: "/contact",
+				element: (
+					<Suspense fallback={<h1>Loading contact us....</h1>}>
+						<LazyContact />
 					</Suspense>
 				),
 			},
