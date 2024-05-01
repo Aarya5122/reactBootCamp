@@ -1,6 +1,6 @@
 import constants from "../constants";
 function CartItem({ item }) {
-	console.log(item);
+	//console.log(item);
 	return (
 		<div className="border w-[70%] border-white flex gap-4 p-4 mx-auto m-2">
 			<img

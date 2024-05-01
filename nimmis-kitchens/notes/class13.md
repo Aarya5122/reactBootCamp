@@ -14,3 +14,32 @@
 # NOTE:
 - (--) Dunder method
 - Check for the nesting level of describe - test / describe - it
+
+# ACT and Mimick fetch API.
+- As browsers provide the fetch API. jest-dom does not have inbuilt fetch API suuport hence we should mimick this feature to test API calls.
+
+global.fetch = jest.fn(
+    ()=>{
+        return Promise.resolve({
+            json: ()=>{
+                return Promise.resolve(data)
+            }
+        })
+    }
+) 
+
+- When state updates are dependent under a async operation like fetch in the above example. Then we have to wrap render in act function.
+- act function  is a utility provided by react-dom/test-utils
+- act utility is responsible for updating the UI / jest-dom while testing based on state updates.
+
+it("", async () => {
+    await act(
+        async() => {
+            return render(<Component/>)
+        }
+    )
+})
+
+- getByTestId from screen of jest-dom => we need to add a param to jSX element i.e data-testid
+
+- beforeAll(callBack), beforeEach(callBack), afterAll(callback), afterEach(callback)

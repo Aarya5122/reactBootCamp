@@ -10,6 +10,8 @@ const RestroCard = ({
 	resImgID = "",
 	resId,
 }) => {
+	
+
 	const navigate = useNavigate();
 
 	function openRestro() {

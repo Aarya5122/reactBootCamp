@@ -8,6 +8,7 @@ function Menu() {
 	const { resID } = useParams();
 	const restaurantInfo = useRestaurantMenu(resID);
 	console.log(restaurantInfo);
+	console.log(restaurantInfo);
 	const status = useOnlineChecker();
 
 	return (
@@ -19,7 +20,10 @@ function Menu() {
 			{restaurantInfo &&
 				Array.isArray(restaurantInfo) &&
 				restaurantInfo.map((menu) => (
-					<MenuCateory key={menu.card.card.title} menu={menu?.card?.card} />
+					<MenuCateory
+						key={menu.card.card.title}
+						menu={menu?.card?.card}
+					/>
 				))}
 		</div>
 	);

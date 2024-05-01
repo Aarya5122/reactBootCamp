@@ -53,16 +53,15 @@ const Home = () => {
 				setFilteredRestaurants={setFilteredRestaurants}
 				restaurants={restaurants}
 			/>
-			{console.log("TESTING: ", user)}
-			<p>{user.name}</p>
+
 			<input
 				type="text"
 				className="bg-white px-1 text-black"
 				placeholder="Username context"
 				value={user.name}
 				onChange={(e) => {
-					e.preventDefault(); 
-					setUser({name: e.target.value});
+					e.preventDefault();
+					setUser({ name: e.target.value });
 				}}
 			/>
 			<br />

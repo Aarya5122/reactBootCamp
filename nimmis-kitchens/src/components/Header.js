@@ -1,4 +1,4 @@
-import { useContext, useState, useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../context/userContext";
 import { useSelector } from "react-redux";
@@ -8,12 +8,10 @@ const Header = () => {
 	const [user, setUser] = useState({});
 
 	const userData = useContext(UserContext);
-	console.log(userData);
 
 	// Subscribed to store.cart.items
 	const cartItems = useSelector((store) => store.carts.items);
 
-	console.log("Rerendered header");
 
 	return (
 		<header className="flex alignItemsCenter spaceBetween">
